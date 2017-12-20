@@ -17,6 +17,12 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::get('v1/user',['as' => 'getUsers', 'uses' =>'UserController@getUsers']);
-Route::post('v1/user',['as' => 'createUser', 'uses' =>'UserController@createUser']);
-Route::put('v1/user/{id}',['as' => 'editUser', 'uses' =>'UserController@editUser']);
+Route::post('v1/login',['as' => 'login', 'uses' =>'Auth\LoginController@login']);
+
+
+Route::group(['middleware' => 'jwt.auth'], function () {
+
+    Route::get('v1/user',['as' => 'getUsers', 'uses' =>'UserController@getUsers']);
+    Route::post('v1/user',['as' => 'createUser', 'uses' =>'UserController@createUser']);
+    Route::put('v1/user/{id}',['as' => 'editUser', 'uses' =>'UserController@editUser']);
+});

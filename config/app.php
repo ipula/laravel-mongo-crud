@@ -179,6 +179,7 @@ return [
 
         //mongodb
         Jenssegers\Mongodb\MongodbServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
     ],
 
@@ -229,6 +230,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Moloquent' => Jenssegers\Mongodb\Eloquent\Model::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+//        'JWTFactory' => Tymon\JWTAuthFacades\JWTFactory::class`
 
     ],
 
